@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
@@ -50,6 +51,12 @@ public class TakeImageActivity extends BaseActivity {
     String mName;
     @Extra
     String mAddress;
+    @Extra
+    String mProduct;
+    @Extra
+    String mPrice;
+    @Extra
+    String mUri;
 
     @ViewById
     ImageView mImgMain;
@@ -78,9 +85,11 @@ public class TakeImageActivity extends BaseActivity {
     boolean boolean_save;
     private String filename;
     private AlertDialog alertDialog;
+    Bitmap bitmap1;
 
     @Override
     protected void afterView() {
+        getSupportActionBar().hide();
         alertDialog = new SpotsDialog(this);
         mTvAddress.setVisibility(View.VISIBLE);
 
@@ -90,23 +99,41 @@ public class TakeImageActivity extends BaseActivity {
             mTvAddress.setText(mAddress);
         }
 
-        filename = String.valueOf(Random());
-        fn_permission();
-
-        if (ContextCompat.checkSelfPermission(this,
-
-                Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED &&
-                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        == PackageManager.PERMISSION_GRANTED
-                ) {
-            dispatchTakenPictureIntent();
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
-                }
+        if (mUri != null) {
+            filename = String.valueOf(Random());
+            System.out.println("222222222222222222222222222");
+            mImgMain.setImageBitmap(BitmapFactory.decodeFile(mUri));
+            //  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+               //   fn_permission();
+           // boolean_permission = true;
+            if (boolean_permission) {
+                Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
+                saveBitmap(bitmap1);
+            } else {
             }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_CAMERA_REQUEST_CODE);
+            // }else{
+            //  Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
+            // saveBitmap(bitmap1);
+           // }
+        } else {
+            System.out.println("22222222222222222222222222244444");
+            filename = String.valueOf(Random());
+            fn_permission();
+            if (ContextCompat.checkSelfPermission(this,
+
+                    Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED &&
+                    ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                            == PackageManager.PERMISSION_GRANTED
+                    ) {
+                dispatchTakenPictureIntent();
+            } else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
+                    }
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    requestPermissions(new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_CAMERA_REQUEST_CODE);
+                }
             }
         }
 
@@ -166,6 +193,18 @@ public class TakeImageActivity extends BaseActivity {
                                     getContentResolver(), imageUri);
                             mImgMain.setImageBitmap(bitmap);
 
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                if (boolean_permission) {
+                                     bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
+
+                                    saveBitmap(bitmap1);
+                                } else {
+                                }
+                            }else{
+                                Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
+                                saveBitmap(bitmap1);
+                            }
+
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -191,12 +230,20 @@ public class TakeImageActivity extends BaseActivity {
                 break;
 
             case R.id.mTvSave:
-                alertDialog.show();
-                if (boolean_permission) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    alertDialog.show();
+                    if (boolean_permission) {
+                        Toast.makeText(TakeImageActivity.this,"AAAAAAAAA", Toast.LENGTH_SHORT).show();
+                        Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
+                        saveBitmap(bitmap1);
+                    } else {
+                        Toast.makeText(TakeImageActivity.this,"CCCCCCCCCC", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
                     Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
                     saveBitmap(bitmap1);
-                } else {
                 }
+
                 break;
 
             case R.id.mTvNext:
@@ -217,7 +264,7 @@ public class TakeImageActivity extends BaseActivity {
             fos.flush();
             fos.close();
             boolean_save = true;
-            if(boolean_save){
+            if (boolean_save) {
                 alertDialog.dismiss();
                 alertDialog.setTitle("Đang lưu ảnh");
                 showAlertDialog("Lưu ảnh thành công!");
@@ -274,5 +321,13 @@ public class TakeImageActivity extends BaseActivity {
         Random rand = new Random();
         int num = rand.nextInt(10000000);
         return num;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(bitmap1!=null){
+            Toast.makeText(TakeImageActivity.this,"vvvvvvvvvvvvv", Toast.LENGTH_SHORT).show();
+        }
     }
 }

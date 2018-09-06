@@ -12,6 +12,11 @@ public class SessionManager {
     private static final String KEY_SAVE_NAME = "key_save_name";
     private static final String KEY_SAVE_PHONE = "key_save_phone";
     private static final String KEY_SAVE_PASS = "key_save_pass";
+    private static final String KEY_SAVE_PRODUCT = "key_save_product";
+    private static final String KEY_SAVE_ADDRESS = "key_save_address";
+    private static final String KEY_SAVE_PRICE = "key_save_price";
+    private static final String KEY_SAVE_NUMBER = "key_save_number";
+    private static final String KEY_SAVE_YOU = "key_save_you";
 
     private static SessionManager sInstance;
 
@@ -32,44 +37,25 @@ public class SessionManager {
         sharedPref = context.getSharedPreferences(SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE);
     }
 
-    /**
-     * Set key save email
-     *
-     * @param token
-     */
+
     public void setKeyName(String token) {
         sharedPref.edit().putString(KEY_SAVE_NAME, token).apply();
     }
+
     public String getKeySaveName() {
         return sharedPref.getString(KEY_SAVE_NAME, "");
     }
 
-    /**
-     * get key save email
-     *
-     * @return
-     */
+
     public String getKeySavePhone() {
         return sharedPref.getString(KEY_SAVE_PHONE, "");
     }
 
-    /**
-     * Set key save email
-     *
-     * @param token
-     */
     public void setKeyPhone(String token) {
         sharedPref.edit().putString(KEY_SAVE_PHONE, token).apply();
     }
 
 
-
-
-    /**
-     * get key save pass
-     *
-     * @return
-     */
     public String getKeySavePass() {
         return sharedPref.getString(KEY_SAVE_PASS, "");
     }
@@ -78,6 +64,58 @@ public class SessionManager {
         sharedPref.edit().putString(KEY_SAVE_PASS, token).apply();
     }
 
+    public String getKeySaveProduct() {
+        return sharedPref.getString(KEY_SAVE_PRODUCT, "");
+    }
+    public void setKeySaveProduct(String token) {
+        sharedPref.edit().putString(KEY_SAVE_PRODUCT, token).apply();
+    }
 
+    public String getKeySaveAddress() {
+        return sharedPref.getString(KEY_SAVE_ADDRESS, "");
+    }
+    public void setKeySaveAddress(String token) {
+        sharedPref.edit().putString(KEY_SAVE_ADDRESS, token).apply();
+    }
+
+    public String getKeySavePrice() {
+        return sharedPref.getString(KEY_SAVE_PRICE, "");
+    }
+    public void setKeySavePrice(String token) {
+        sharedPref.edit().putString(KEY_SAVE_PRICE, token).apply();
+    }
+
+    public String getKeySaveNumber() {
+        return sharedPref.getString(KEY_SAVE_NUMBER, "");
+    }
+    public void setKeySaveNumber(String token) {
+        sharedPref.edit().putString(KEY_SAVE_NUMBER, token).apply();
+    }
+
+    public String getKeySaveYou() {
+        return sharedPref.getString(KEY_SAVE_YOU, "");
+    }
+    public void setKeySaveYou(String token) {
+        sharedPref.edit().putString(KEY_SAVE_YOU, token).apply();
+    }
+
+        public void removeSaveProduct() {
+        sharedPref.edit().remove(KEY_SAVE_PRODUCT).commit();
+    }
+
+    public void removeSaveAddress() {
+        sharedPref.edit().remove(KEY_SAVE_ADDRESS).commit();
+    }
+
+    public void removeSavePrice() {
+        sharedPref.edit().remove(KEY_SAVE_PRICE).commit();
+    }
+
+    public void removeSaveNumber() {
+        sharedPref.edit().remove(KEY_SAVE_NUMBER).commit();
+    }
+
+    public void removeSaveYou() {
+        sharedPref.edit().remove(KEY_SAVE_YOU).commit();
+    }
 }
-

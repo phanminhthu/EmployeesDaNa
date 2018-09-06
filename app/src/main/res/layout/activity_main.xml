@@ -30,15 +30,16 @@
         android:scrollbars="none">
 
         <LinearLayout
-            android:gravity="center_horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp">
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center">
 
                 <EditText
                     android:id="@+id/mEdtProduct"
@@ -61,7 +62,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/mEdtProduct"
-                    android:background="@color/colorMain"
                     android:checked="true"
                     android:textColor="@color/black" />
             </RelativeLayout>
@@ -69,7 +69,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp">
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center">
 
                 <EditText
                     android:id="@+id/mEdtName"
@@ -92,7 +93,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/mEdtName"
-                    android:background="@color/colorMain"
                     android:checked="true"
                     android:textColor="@color/black" />
             </RelativeLayout>
@@ -100,7 +100,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp">
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center">
 
                 <EditText
                     android:id="@+id/mEdtPhone"
@@ -124,7 +125,6 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/mEdtPhone"
-                    android:background="@color/colorMain"
                     android:checked="true"
                     android:textColor="@color/black" />
             </RelativeLayout>
@@ -132,7 +132,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp">
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center">
 
                 <EditText
                     android:id="@+id/mTvAddress"
@@ -153,49 +154,75 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/mTvAddress"
-                    android:background="@color/colorMain"
                     android:checked="true"
                     android:textColor="@color/black" />
             </RelativeLayout>
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp">
-            <EditText
-                android:id="@+id/mTvMoney"
-                android:layout_width="@dimen/_220sdp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/_10sdp"
-                android:layout_marginRight="@dimen/_10sdp"
-                android:background="@drawable/bg_edittext"
-                android:hint="Giá sản phẩm"
-                android:imeOptions="actionNext"
-                android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorWhite"
-                android:textSize="@dimen/_11sdp"  />
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/mEdtMoney"
+                    android:layout_width="@dimen/_220sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_edittext"
+                    android:hint="Giá sản phẩm"
+                    android:imeOptions="actionNext"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"
+                    android:textSize="@dimen/_11sdp" />
 
                 <android.support.v7.widget.AppCompatCheckBox
                     android:id="@+id/mCbMoney"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/mTvMoney"
-                    android:background="@color/colorMain"
+                    android:layout_toRightOf="@id/mEdtMoney"
                     android:checked="true"
                     android:textColor="@color/black" />
             </RelativeLayout>
-            <TextView
-                android:id="@+id/mTvSubmit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/_5sdp"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:background="@drawable/bg_edittext"
-                android:text="Bắt đầu"
-                android:textColor="@color/colorWhite"
-                android:textSize="@dimen/_10sdp" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/mTvSubmit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:gravity="center"
+                    android:text="Chụp ảnh"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/mTvPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_edittext"
+                    android:gravity="center"
+                    android:text="Chọn ảnh"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_10sdp" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

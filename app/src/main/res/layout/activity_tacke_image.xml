@@ -19,84 +19,86 @@
             android:textColor="@color/colorWhite" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/mLnTake"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/_200sdp">
 
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/mLnTake"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/mImgMain"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/mau1"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1.7"
-                android:gravity="center">
+                android:layout_height="wrap_content">
 
                 <ImageView
-                    android:layout_width="@dimen/_30sdp"
-                    android:layout_height="@dimen/_30sdp"
-                    android:background="@drawable/ic_logo" />
-            </LinearLayout>
+                    android:id="@+id/mImgMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="0.3"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/mTvName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lê Thanh Thủy"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_15sdp" />
-
-                <TextView
-                    android:id="@+id/mTvPhone"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:drawableLeft="@drawable/ic_phone"
-                    android:drawablePadding="@dimen/_5sdp"
-                    android:text="0921 268 512"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_10sdp" />
+                    android:layout_alignBottom="@+id/mImgMain"
+                    android:layout_alignParentLeft="true"
+                    android:background="@color/mau1"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
-                <TextView
-                    android:id="@+id/mTvAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_2sdp"
-                    android:drawableLeft="@drawable/ic_address"
-                    android:drawablePadding="@dimen/_5sdp"
-                    android:text="112 lê thánh tông, đà nẵng"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/_10sdp" />
-            </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="1.7"
+                        android:gravity="center">
 
-        </LinearLayout>
-    </RelativeLayout>
+                        <ImageView
+                            android:layout_width="@dimen/_30sdp"
+                            android:layout_height="@dimen/_30sdp"
+                            android:background="@drawable/ic_logo" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_weight="0.3"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/mTvName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Lê Thanh Thủy"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_15sdp" />
+
+                        <TextView
+                            android:id="@+id/mTvPhone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:drawableLeft="@drawable/ic_phone"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="0921 268 512"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_10sdp" />
+
+                        <TextView
+                            android:id="@+id/mTvAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:drawableLeft="@drawable/ic_address"
+                            android:drawablePadding="@dimen/_5sdp"
+                            android:text="112 lê thánh tông, đà nẵng"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="@dimen/_10sdp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
 
     <TextView
         android:id="@+id/mTvHide"
@@ -110,9 +112,10 @@
         android:paddingRight="@dimen/_21sdp"
         android:text="Ẩn địa chỉ"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_10sdp" />
+        android:textSize="@dimen/_10sdp"
+        android:visibility="gone" />
+
     <TextView
-        android:visibility="gone"
         android:id="@+id/mTvView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -124,7 +127,8 @@
         android:paddingRight="@dimen/_17sdp"
         android:text="Hiện địa chỉ"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_10sdp" />
+        android:textSize="@dimen/_10sdp"
+        android:visibility="gone" />
 
     <TextView
         android:id="@+id/mTvSave"
@@ -149,5 +153,6 @@
         android:text="Tiếp tục"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/_10sdp" />
+
 
 </LinearLayout>

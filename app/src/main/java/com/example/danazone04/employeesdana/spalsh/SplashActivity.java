@@ -33,6 +33,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void afterView() {
+        getSupportActionBar().hide();
         if(!ConnectionUtil.isConnected(this)){
             showAlertDialog("Vui lòng kiểm tra kết nối internet");
             return;

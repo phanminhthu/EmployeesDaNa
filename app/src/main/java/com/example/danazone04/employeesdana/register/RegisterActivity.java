@@ -73,6 +73,7 @@ public class RegisterActivity extends BaseActivity {
     private AlertDialog waitingDialog;
     @Override
     protected void afterView() {
+        getSupportActionBar().hide();
         waitingDialog = new SpotsDialog(RegisterActivity.this);
         if(!ConnectionUtil.isConnected(this)){
             showAlertDialog("Vui lòng kiểm tra kết nối internet");
