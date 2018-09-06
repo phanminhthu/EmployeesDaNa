@@ -35,7 +35,7 @@ public class BaseApp extends MultiDexApplication {
         super.onCreate();
         Log.d(TAG, "onCreate: ");
         // Session Manager SharedPreferences
-      //  SessionManager.getInstance().init(this);
+        SessionManager.getInstance().init(this);
 
         MultiDex.install(getApplicationContext());
 

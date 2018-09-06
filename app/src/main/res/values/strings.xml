@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DaNa Photo</string>
+    <string name="facebook_app_id">772268312919964</string>
+    <string name="facebook_schema">fb772268312919964</string>
+
+    <string name="ACCOUNT_KIT_CLIENT_TOKEN">1cfde487b62ef8af30b62a9006fb1e55</string>
 </resources>
