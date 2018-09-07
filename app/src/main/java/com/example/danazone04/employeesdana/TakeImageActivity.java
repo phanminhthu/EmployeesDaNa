@@ -15,8 +15,10 @@ import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -25,6 +27,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.danazone04.employeesdana.register.RegisterActivity_;
+import com.example.danazone04.employeesdana.spalsh.SplashActivity;
 
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
@@ -44,7 +49,7 @@ import dmax.dialog.SpotsDialog;
 public class TakeImageActivity extends BaseActivity {
     private static final int MY_CAMERA_REQUEST_CODE = 100;
     private static int REQUEST_PERMISSIONS = 1;
-
+    private Handler mHandler = new Handler();
     @Extra
     String mPhone;
     @Extra
@@ -76,6 +81,10 @@ public class TakeImageActivity extends BaseActivity {
     RelativeLayout mLnTake;
     @ViewById
     TextView mTvView;
+    @ViewById
+    TextView mTvPrice;
+    @ViewById
+    TextView mTvYou;
 
     private ContentValues values;
     private Uri imageUri;
@@ -85,38 +94,56 @@ public class TakeImageActivity extends BaseActivity {
     boolean boolean_save;
     private String filename;
     private AlertDialog alertDialog;
-    Bitmap bitmap1;
 
     @Override
     protected void afterView() {
         getSupportActionBar().hide();
         alertDialog = new SpotsDialog(this);
-        mTvAddress.setVisibility(View.VISIBLE);
+        alertDialog.show();
+        alertDialog.setMessage("Đang lưu ảnh...");
 
-        if (mName != null && mPhone != null && mAddress != null) {
-            mTvName.setText(mName);
-            mTvPhone.setText(mPhone);
-            mTvAddress.setText(mAddress);
+        mTvAddress.setVisibility(View.VISIBLE);
+        mTvName.setText(mProduct);
+        mTvPhone.setText(mPhone);
+        mTvAddress.setText(mAddress);
+        mTvPrice.setText(mPrice);
+        mTvYou.setText(mName);
+
+
+        if (mProduct.equals("")) {
+            mTvName.setVisibility(View.GONE);
         }
+        if (mName.equals("")) {
+            mTvYou.setVisibility(View.GONE);
+        }
+        if (mPhone.equals("")) {
+            mTvPhone.setVisibility(View.GONE);
+        }
+        if (mAddress.equals("")) {
+            mTvAddress.setVisibility(View.GONE);
+        }
+
+        if (mPrice.equals("")) {
+            mTvPrice.setVisibility(View.GONE);
+        }
+
 
         if (mUri != null) {
             filename = String.valueOf(Random());
-            System.out.println("222222222222222222222222222");
+            fn_permission();
             mImgMain.setImageBitmap(BitmapFactory.decodeFile(mUri));
-            //  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-               //   fn_permission();
-           // boolean_permission = true;
-            if (boolean_permission) {
-                Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
-                saveBitmap(bitmap1);
-            } else {
-            }
-            // }else{
-            //  Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
-            // saveBitmap(bitmap1);
-           // }
+            Runnable mActivityStarter = new Runnable() {
+                @Override
+                public void run() {
+                    alertDialog.show();
+                    alertDialog.setTitle("Đang lưu ảnh...");
+                    hello();
+                }
+            };
+            mHandler.postDelayed(mActivityStarter, 1500);
+
         } else {
-            System.out.println("22222222222222222222222222244444");
+
             filename = String.valueOf(Random());
             fn_permission();
             if (ContextCompat.checkSelfPermission(this,
@@ -137,6 +164,21 @@ public class TakeImageActivity extends BaseActivity {
             }
         }
 
+    }
+
+    private void hello() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            alertDialog.show();
+            if (boolean_permission) {
+                Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
+                saveBitmap(bitmap1);
+            } else {
+                alertDialog.dismiss();
+            }
+        } else {
+            Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
+            saveBitmap(bitmap1);
+        }
     }
 
 
@@ -193,17 +235,27 @@ public class TakeImageActivity extends BaseActivity {
                                     getContentResolver(), imageUri);
                             mImgMain.setImageBitmap(bitmap);
 
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                if (boolean_permission) {
-                                     bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
-
-                                    saveBitmap(bitmap1);
-                                } else {
+                            Runnable mActivityStarter = new Runnable() {
+                                @Override
+                                public void run() {
+                                    alertDialog.show();
+                                    alertDialog.setTitle("Đang lưu ảnh...");
+                                    hello();
                                 }
-                            }else{
-                                Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
-                                saveBitmap(bitmap1);
-                            }
+                            };
+                            mHandler.postDelayed(mActivityStarter, 1500);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                                if (boolean_permission) {
+//                                    Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
+//                                   saveBitmap(bitmap1);
+//
+//                                } else {
+//
+//                                }
+//                            }else{
+//                                 Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());saveBitmap(bitmap1);
+//                                saveBitmap(bitmap1);
+//                            }
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -215,7 +267,7 @@ public class TakeImageActivity extends BaseActivity {
 
 
     @Click({R.id.mTvHide, R.id.mTvSave, R.id.mTvNext, R.id.mTvView})
-    void onClick(View v) {
+    void onClicks(View v) {
         switch (v.getId()) {
             case R.id.mTvHide:
                 mTvAddress.setVisibility(View.GONE);
@@ -233,13 +285,12 @@ public class TakeImageActivity extends BaseActivity {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     alertDialog.show();
                     if (boolean_permission) {
-                        Toast.makeText(TakeImageActivity.this,"AAAAAAAAA", Toast.LENGTH_SHORT).show();
                         Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
                         saveBitmap(bitmap1);
                     } else {
-                        Toast.makeText(TakeImageActivity.this,"CCCCCCCCCC", Toast.LENGTH_SHORT).show();
+                        alertDialog.dismiss();
                     }
-                }else{
+                } else {
                     Bitmap bitmap1 = loadBitmapFromView(mLnTake, mLnTake.getWidth(), mLnTake.getHeight());
                     saveBitmap(bitmap1);
                 }
@@ -266,8 +317,8 @@ public class TakeImageActivity extends BaseActivity {
             boolean_save = true;
             if (boolean_save) {
                 alertDialog.dismiss();
-                alertDialog.setTitle("Đang lưu ảnh");
-                showAlertDialog("Lưu ảnh thành công!");
+                //alertDialog.setTitle("Đang lưu ảnh");
+                Toast.makeText(TakeImageActivity.this, "Hình ảnh đã lưu vào bộ sưu tập!", Toast.LENGTH_LONG).show();
             }
             // mTvSubmit.setText("Check image");
 
@@ -321,13 +372,5 @@ public class TakeImageActivity extends BaseActivity {
         Random rand = new Random();
         int num = rand.nextInt(10000000);
         return num;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if(bitmap1!=null){
-            Toast.makeText(TakeImageActivity.this,"vvvvvvvvvvvvv", Toast.LENGTH_SHORT).show();
-        }
     }
 }

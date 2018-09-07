@@ -59,14 +59,35 @@ public class MainActivity extends BaseActivity {
     CheckBox mCbMoney;
 
     private String uri;
-
+    private String names, phones, addresss, prices,products;
 
     @Override
     protected void afterView() {
         getSupportActionBar().hide();
+        checkinCheckBox();
         setData();
         checkPermissions();
 
+    }
+
+    private void checkinCheckBox() {
+        if(SessionManager.getInstance().getKeySaveProduct().equals("")) {
+            mCbProduct.setChecked(false);
+        }
+        if(SessionManager.getInstance().getKeySaveAddress().equals("")) {
+            mCbAddress.setChecked(false);
+        }
+
+        if(SessionManager.getInstance().getKeySaveNumber().equals("")) {
+            mCbPhone.setChecked(false);
+        }
+        if(SessionManager.getInstance().getKeySaveYou().equals("")) {
+            mCbName.setChecked(false);
+        }
+
+        if(SessionManager.getInstance().getKeySavePrice().equals("")) {
+            mCbMoney.setChecked(false);
+        }
     }
 
     private void setData() {
@@ -110,6 +131,13 @@ public class MainActivity extends BaseActivity {
             case R.id.mTvSubmit:
                 checkPermissions();
                 getData();
+                TakeImageActivity_.intent(MainActivity.this)
+                        .mName(names)
+                        .mPhone(phones)
+                        .mAddress(addresss)
+                        .mProduct(products)
+                        .mPrice(prices)
+                        .start();
                 break;
 
 //            case R.id.mTvAddress:
@@ -228,10 +256,12 @@ public class MainActivity extends BaseActivity {
                 return;
             } else {
                 name = mEdtName.getText().toString();
+                names = name;
                 SessionManager.getInstance().setKeySaveYou(name);
             }
         } else {
             name = "";
+            names = name;
         }
 
         if (mCbPhone.isChecked()) {
@@ -240,10 +270,12 @@ public class MainActivity extends BaseActivity {
                 return;
             } else {
                 phone = mEdtPhone.getText().toString();
+                phones = phone;
                 SessionManager.getInstance().setKeySaveNumber(phone);
             }
         } else {
             phone = "";
+            phones = phone;
         }
 
         if (mCbAddress.isChecked()) {
@@ -252,10 +284,12 @@ public class MainActivity extends BaseActivity {
                 return;
             } else {
                 address = mTvAddress.getText().toString();
+                addresss = address;
                 SessionManager.getInstance().setKeySaveAddress(address);
             }
         } else {
             address = "";
+            addresss = address;
         }
 
         if (mCbProduct.isChecked()) {
@@ -264,10 +298,12 @@ public class MainActivity extends BaseActivity {
                 return;
             } else {
                 product = mEdtProduct.getText().toString();
+                products = product;
                 SessionManager.getInstance().setKeySaveProduct(product);
             }
         } else {
             product = "";
+            products = product;
         }
 
         if (mCbMoney.isChecked()) {
@@ -276,20 +312,13 @@ public class MainActivity extends BaseActivity {
                 return;
             } else {
                 price = mEdtMoney.getText().toString();
+                prices = price;
                 SessionManager.getInstance().setKeySavePrice(price);
             }
         } else {
             price = "";
+            prices = price;
         }
-
-        TakeImageActivity_.intent(MainActivity.this)
-                .mName(name)
-                .mPhone(phone)
-                .mAddress(address)
-                .mProduct(product)
-                .mPrice(price)
-                .start();
-        finish();
 
     }
 
@@ -316,10 +345,16 @@ public class MainActivity extends BaseActivity {
                 uri = cursor.getString(columnIndex);
 
                 cursor.close();
+                getData();
+                TakeImageActivity_.intent(MainActivity.this)
+                        .mUri(uri)
+                        .mName(names)
+                        .mPhone(phones)
+                        .mAddress(addresss)
+                        .mPrice(prices)
+                        .mProduct(products)
+                        .start();
 
-           //     ImageView imgView = (ImageView) findViewById(R.id.imgView);
-                TakeImageActivity_.intent(MainActivity.this).mUri(uri).start();
-                // Set the Image in ImageView after decoding the String
 
             } else {
 

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#dddddd"
+    android:background="@color/colorWhite"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -19,20 +19,45 @@
             android:textColor="@color/colorWhite" />
     </RelativeLayout>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
-        <RelativeLayout
-            android:id="@+id/mLnTake"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/mLnTake"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <ImageView
                     android:id="@+id/mImgMain"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/mTvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@color/mau1"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:paddingLeft="@dimen/_2sdp"
+                    android:paddingRight="@dimen/_2sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:text="300.000d"
+                    android:textColor="@color/colorMain"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -67,20 +92,40 @@
                             android:id="@+id/mTvName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Lê Thanh Thủy"
+                            android:text="Xe dap dia hinh"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/_15sdp" />
 
-                        <TextView
-                            android:id="@+id/mTvPhone"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_5sdp"
-                            android:drawableLeft="@drawable/ic_phone"
-                            android:drawablePadding="@dimen/_5sdp"
-                            android:text="0921 268 512"
-                            android:textColor="@color/colorWhite"
-                            android:textSize="@dimen/_10sdp" />
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:id="@+id/mTvYou"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_weight="1"
+                                android:drawableLeft="@drawable/account"
+                                android:drawablePadding="@dimen/_5sdp"
+                                android:text="Le Thanh Thuy"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <TextView
+                                android:id="@+id/mTvPhone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:layout_weight="1"
+                                android:drawableLeft="@drawable/ic_phone"
+                                android:drawablePadding="@dimen/_5sdp"
+                                android:text="0921 268 512"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/_10sdp" />
+                        </LinearLayout>
 
                         <TextView
                             android:id="@+id/mTvAddress"
@@ -97,62 +142,61 @@
                 </LinearLayout>
             </RelativeLayout>
 
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/mTvHide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_text_share_fanpage"
+                android:paddingLeft="@dimen/_21sdp"
+                android:paddingRight="@dimen/_21sdp"
+                android:text="Ẩn địa chỉ"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp"
+                android:visibility="gone" />
 
+            <TextView
+                android:id="@+id/mTvView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_text_share_fanpage"
+                android:paddingLeft="@dimen/_17sdp"
+                android:paddingRight="@dimen/_17sdp"
+                android:text="Hiện địa chỉ"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp"
+                android:visibility="gone" />
 
-    <TextView
-        android:id="@+id/mTvHide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/bg_text_share_fanpage"
-        android:paddingLeft="@dimen/_21sdp"
-        android:paddingRight="@dimen/_21sdp"
-        android:text="Ẩn địa chỉ"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_10sdp"
-        android:visibility="gone" />
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/mTvSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_edittext"
+                android:text="Lưu ảnh"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp" />
 
-    <TextView
-        android:id="@+id/mTvView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/bg_text_share_fanpage"
-        android:paddingLeft="@dimen/_17sdp"
-        android:paddingRight="@dimen/_17sdp"
-        android:text="Hiện địa chỉ"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_10sdp"
-        android:visibility="gone" />
-
-    <TextView
-        android:id="@+id/mTvSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/bg_edittext"
-        android:text="Lưu ảnh"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_10sdp" />
-
-    <TextView
-        android:id="@+id/mTvNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/bg_edittext"
-        android:text="Tiếp tục"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/_10sdp" />
-
+            <TextView
+                android:id="@+id/mTvNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_edittext"
+                android:text="Tiếp tục"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
