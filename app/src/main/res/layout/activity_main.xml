@@ -149,6 +149,8 @@
                     android:layout_marginRight="@dimen/_10sdp"
                     android:background="@drawable/bg_edittext"
                     android:hint="Địa chỉ"
+                    android:maxLines="1"
+                    android:singleLine="true"
                     android:imeOptions="actionNext"
                     android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorWhite"
@@ -178,6 +180,8 @@
                     android:layout_marginRight="@dimen/_10sdp"
                     android:background="@drawable/bg_edittext"
                     android:hint="Giá sản phẩm"
+                    android:maxLines="1"
+                    android:singleLine="true"
                     android:imeOptions="actionNext"
                     android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorWhite"
@@ -193,6 +197,37 @@
                     android:textColor="@color/black" />
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center">
+
+                <EditText
+                    android:id="@+id/mEdtWeb"
+                    android:layout_width="@dimen/_220sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/bg_edittext"
+                    android:hint="Địa chỉ website"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:imeOptions="actionDone"
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorWhite"
+                    android:textSize="@dimen/_11sdp" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/mCbWeb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/mEdtWeb"
+                    android:checked="true"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,6 +235,7 @@
                 android:weightSum="2">
 
                 <TextView
+                    android:drawableTop="@drawable/ic_camera"
                     android:id="@+id/mTvSubmit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -208,13 +244,14 @@
                     android:layout_marginRight="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_edittext"
+                    android:background="@drawable/bg_text_share_fanpage"
                     android:gravity="center"
                     android:text="Chụp ảnh"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_10sdp" />
 
                 <TextView
+                    android:drawableTop="@drawable/ic_image"
                     android:id="@+id/mTvPhoto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -223,7 +260,7 @@
                     android:layout_marginRight="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_edittext"
+                    android:background="@drawable/bg_text_share_fanpage"
                     android:gravity="center"
                     android:text="Chọn ảnh"
                     android:textColor="@color/colorWhite"

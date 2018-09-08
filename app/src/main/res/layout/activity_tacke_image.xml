@@ -47,7 +47,6 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginRight="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:background="@color/mau1"
                     android:paddingBottom="@dimen/_2sdp"
@@ -55,7 +54,7 @@
                     android:paddingRight="@dimen/_2sdp"
                     android:paddingTop="@dimen/_2sdp"
                     android:text="300.000d"
-                    android:textColor="@color/colorMain"
+                    android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_18sdp"
                     android:textStyle="bold" />
 
@@ -92,39 +91,55 @@
                             android:id="@+id/mTvName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:maxLines="1"
                             android:text="Xe dap dia hinh"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/_15sdp" />
 
                         <LinearLayout
+                            android:id="@+id/mLnSum"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:weightSum="2">
-
-                            <TextView
-                                android:id="@+id/mTvYou"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_weight="1"
-                                android:drawableLeft="@drawable/account"
-                                android:drawablePadding="@dimen/_5sdp"
-                                android:text="Le Thanh Thuy"
-                                android:textColor="@color/colorWhite"
-                                android:textSize="@dimen/_10sdp" />
+                            android:orientation="horizontal">
 
                             <TextView
                                 android:id="@+id/mTvPhone"
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_10sdp"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:layout_weight="1"
                                 android:drawableLeft="@drawable/ic_phone"
-                                android:drawablePadding="@dimen/_5sdp"
+                                android:drawablePadding="@dimen/_2sdp"
+                                android:maxLines="1"
                                 android:text="0921 268 512"
                                 android:textColor="@color/colorWhite"
                                 android:textSize="@dimen/_10sdp" />
+
+                            <TextView
+                                android:id="@+id/mTvYou"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:drawableLeft="@drawable/account"
+                                android:drawablePadding="@dimen/_2sdp"
+                                android:maxLines="1"
+                                android:text="Thuong thang"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/_10sdp" />
+
+                            <TextView
+                                android:id="@+id/mTvWeb"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:drawableLeft="@drawable/ic_web"
+                                android:drawablePadding="@dimen/_2sdp"
+                                android:maxLines="1"
+                                android:text="xedapdana.com"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="@dimen/_10sdp" />
+
                         </LinearLayout>
 
                         <TextView
@@ -133,7 +148,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_2sdp"
                             android:drawableLeft="@drawable/ic_address"
-                            android:drawablePadding="@dimen/_5sdp"
+                            android:drawablePadding="@dimen/_2sdp"
+                            android:maxLines="1"
                             android:text="112 lê thánh tông, đà nẵng"
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/_10sdp" />
@@ -173,7 +189,6 @@
                 android:visibility="gone" />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/mTvSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -183,17 +198,59 @@
                 android:background="@drawable/bg_edittext"
                 android:text="Lưu ảnh"
                 android:textColor="@color/colorWhite"
-                android:textSize="@dimen/_10sdp" />
+                android:textSize="@dimen/_10sdp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/mTvNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_30sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_text_share_fanpage"
+                    android:drawableTop="@drawable/ic_camera"
+                    android:gravity="center"
+                    android:text="Chụp ảnh"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/mTvPhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_text_share_fanpage"
+                    android:drawableTop="@drawable/ic_image"
+                    android:gravity="center"
+                    android:text="Chọn ảnh"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_10sdp" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/mTvNext"
+                android:id="@+id/mTvOut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/_15sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:background="@drawable/bg_edittext"
-                android:text="Tiếp tục"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/bg_text_share"
+                android:paddingLeft="@dimen/_30sdp"
+                android:paddingRight="@dimen/_30sdp"
+                android:text="Thoát"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/_10sdp" />
         </LinearLayout>
