@@ -2,4 +2,5 @@
 <resources>
     //dialog
     <dimen name="dialog_cancel">-10dp</dimen>
+    <dimen name="logo">-5dp</dimen>
 </resources>

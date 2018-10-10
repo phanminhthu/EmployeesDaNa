@@ -1,7 +1,32 @@
 <resources>
-    <string name="app_name">DaNa Photo</string>
-    <string name="facebook_app_id">772268312919964</string>
-    <string name="facebook_schema">fb772268312919964</string>
+    <string name="app_name">Guava Photo</string>
+    <string name="facebook_app_id">1081260471891872</string>
+    <string name="facebook_schema">fb1081260471891872</string>
 
-    <string name="ACCOUNT_KIT_CLIENT_TOKEN">1cfde487b62ef8af30b62a9006fb1e55</string>
+    <string name="ACCOUNT_KIT_CLIENT_TOKEN">d0efbc7d3c3ab3f9173f44e41a3bd1b3</string>
+
+    <string name="phone_number">Phone number</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="date">Date Of Birth</string>
+    <string name="gender">Gender</string>
+    <string name="location">Location</string>
+    <string name="bussiness">Your Bussiness ?</string>
+    <string name="have_account">Have Account ?</string>
+    <string name="next">Next</string>
+    <string name="not_account">Do not have account ?</string>
+    <string name="sign">Sign in</string>
+    <string name="take_photo">Take Photos</string>
+    <string name="choose_photo">Choose Photos</string>
+    <string name="price">Price</string>
+    <string name="user">User</string>
+    <string name="note">Note: Tap the right side checkbox to display data contents. Tap again to hide.</string>
+    <string name="product">Name of product</string>
+    <string name="internet">Please check internet connection and try again</string>
+    <string name="address">Address</string>
+    <string name="google_ads_1">ca-app-pub-3827501771767729/5859967359</string>
+    <string name="google_ads_2">ca-app-pub-3827501771767729/2173494475</string>
+    <string name="app_upto_date">Your application update is available.</string>
+
+
 </resources>

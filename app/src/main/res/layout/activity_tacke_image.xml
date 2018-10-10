@@ -15,7 +15,7 @@
             android:id="@+id/mTvTimeStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lưu ảnh"
+            android:text="@string/app_name"
             android:textColor="@color/colorWhite" />
     </RelativeLayout>
 
@@ -59,6 +59,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
+                    android:id="@+id/mLnM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/mImgMain"
@@ -68,6 +69,7 @@
                     android:weightSum="2">
 
                     <LinearLayout
+                        android:id="@+id/mLnLogo"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
@@ -75,12 +77,13 @@
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="@dimen/_30sdp"
-                            android:layout_height="@dimen/_30sdp"
-                            android:background="@drawable/ic_logo" />
+                            android:id="@+id/mImgLogoMain"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="@dimen/_40sdp" />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/mLnHi"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
@@ -111,7 +114,7 @@
                                 android:drawableLeft="@drawable/ic_phone"
                                 android:drawablePadding="@dimen/_2sdp"
                                 android:maxLines="1"
-                                android:text="0921 268 512"
+                                android:text=""
                                 android:textColor="@color/colorWhite"
                                 android:textSize="@dimen/_10sdp" />
 
@@ -124,7 +127,7 @@
                                 android:drawableLeft="@drawable/account"
                                 android:drawablePadding="@dimen/_2sdp"
                                 android:maxLines="1"
-                                android:text="Thuong thang"
+                                android:text=""
                                 android:textColor="@color/colorWhite"
                                 android:textSize="@dimen/_10sdp" />
 
@@ -136,7 +139,7 @@
                                 android:drawableLeft="@drawable/ic_web"
                                 android:drawablePadding="@dimen/_2sdp"
                                 android:maxLines="1"
-                                android:text="xedapdana.com"
+                                android:text=""
                                 android:textColor="@color/colorWhite"
                                 android:textSize="@dimen/_10sdp" />
 
@@ -150,7 +153,7 @@
                             android:drawableLeft="@drawable/ic_address"
                             android:drawablePadding="@dimen/_2sdp"
                             android:maxLines="1"
-                            android:text="112 lê thánh tông, đà nẵng"
+                            android:text=""
                             android:textColor="@color/colorWhite"
                             android:textSize="@dimen/_10sdp" />
                     </LinearLayout>
@@ -219,7 +222,7 @@
                     android:background="@drawable/bg_text_share_fanpage"
                     android:drawableTop="@drawable/ic_camera"
                     android:gravity="center"
-                    android:text="Chụp ảnh"
+                    android:text="@string/take_photo"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_10sdp" />
 
@@ -228,14 +231,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_5sdp"
-                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginLeft="@dimen/_25sdp"
                     android:layout_marginRight="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_30sdp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_text_share_fanpage"
                     android:drawableTop="@drawable/ic_image"
                     android:gravity="center"
-                    android:text="Chọn ảnh"
+                    android:text="@string/choose_photo"
                     android:textColor="@color/colorWhite"
                     android:textSize="@dimen/_10sdp" />
             </LinearLayout>
@@ -250,7 +253,7 @@
                 android:background="@drawable/bg_text_share"
                 android:paddingLeft="@dimen/_30sdp"
                 android:paddingRight="@dimen/_30sdp"
-                android:text="Thoát"
+                android:text="Exit"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/_10sdp" />
         </LinearLayout>

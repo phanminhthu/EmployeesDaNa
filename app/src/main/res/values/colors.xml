@@ -10,4 +10,34 @@
     <color name="mau2">#7f000000</color>
     <color name="mau3">#bf000000</color>
     <color name="bmi">#FF6800</color>
+    <array name="demo_colors">
+        <item>#ffffff</item>
+        <item>#2196f3</item>
+        <item>#1769aa</item>
+        <item>#f73378</item>
+        <item>#ab003c</item>
+        <item>#14a37f</item>
+        <item>#1de9b6</item>
+        <item>#c6ff00</item>
+        <item>#ff9100</item>
+        <item>#4615b2</item>
+        <item>#9c27b0</item>
+        <item>#6d1b7b</item>
+        <item>#f50057</item>
+
+
+        <item>#000000</item>
+        <item>#dddddd</item>
+        <item>#76FF03</item>
+        <item>#FFEB3B</item>
+        <item>#9E9E9E</item>
+        <item>#F5F5F5</item>
+        <item>#D84315</item>
+
+        <item>#607D8B</item>
+        <item>#01579B</item>
+        <item>#D50000</item>
+        <item>#009688</item>
+
+    </array>
 </resources>
